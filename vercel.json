@@ -1,8 +1,9 @@
 {
-  "buildCommand": "vinext build",
+  "buildCommand": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
   "outputDirectory": "dist/client",
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "routes": [
+    { "src": "/_vinext/(.*)", "dest": "/_vinext/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
